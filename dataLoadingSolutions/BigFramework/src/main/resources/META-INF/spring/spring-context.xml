@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd 
+						http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd ">
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:META-INF/properties/bigFramework.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="log4jInitialization"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"
+		depends-on="propertyConfigurer">
+		<property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
+		<property name="targetMethod" value="initLogging" />
+		<property name="arguments">
+			<list>
+				<value>classpath:META-INF/properties/log4j.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<util:map id="j2cDataTypeMap">
+		<entry key="String" value="text" />
+		<entry key="Long" value="bigint" />
+		<entry key="Boolean" value="boolean" />
+		<entry key="BigDecimal" value="decimal" />
+		<entry key="Double" value="double" />
+		<entry key="Float" value="float" />
+		<entry key="Integer" value="int" />
+		<entry key="List" value="list" />
+		<entry key="Map" value="map" />
+		<entry key="Set" value="set" />
+		<entry key="Date" value="timestamp" />
+		<entry key="UUID" value="uuid" />
+		<entry key="BigInteger" value="varint" />
+		<entry key="XMLGregorianCalendar" value="timestamp" />
+	</util:map>
+	<util:map id="xmlToCassandraDataTypeMap">
+		<entry key="string" value="text" />
+		<entry key="normalizedString" value="text" />
+		<entry key="token" value="text" />
+		<entry key="language" value="text" />
+		<entry key="IDREFS" value="list&lt;text&gt;" />
+		<entry key="IDREF" value="text" />
+		<entry key="ENTITIES" value="list&lt;text&gt;" />
+		<entry key="ENTITY" value="text" />
+		<entry key="NMTOKEN" value="text" />
+		<entry key="NMTOKENS" value="list&lt;text&gt;" />
+		<entry key="Name" value="text" />
+		<entry key="NCName" value="text" />
+		<entry key="ID" value="text" />
+		<entry key="boolean" value="boolean" />
+		<entry key="float" value="float" />
+		<entry key="double" value="double" />
+		<entry key="decimal" value="decimal" />
+		<entry key="duration" value="timestamp" />
+		<entry key="dateTime" value="timestamp" />
+		<entry key="time" value="timestamp" />
+		<entry key="date" value="timestamp" />
+		<entry key="gYearMonth" value="timestamp" />
+		<entry key="gYear" value="timestamp" />
+		<entry key="gMonthDay" value="timestamp" />
+		<entry key="gDay" value="timestamp" />
+		<entry key="gMonth" value="timestamp" />
+		<entry key="hexBinary" value="blob" />
+		<entry key="base64Binary" value="blob" />
+		<entry key="anyURI" value="text" />
+		<entry key="QName" value="text" />
+		<entry key="NOTATION" value="text" />
+		<entry key="integer" value="int" />
+		<entry key="nonPositiveInteger" value="int" />
+		<entry key="negativeInteger" value="int" />
+		<entry key="long" value="bigint" />
+		<entry key="int" value="int" />
+		<entry key="short" value="int" />
+		<entry key="byte" value="int" />
+		<entry key="nonNegativeInteger" value="int" />
+		<entry key="unsignedLong" value="bigint" />
+		<entry key="unsignedInt" value="bigint" />
+		<entry key="unsignedShort" value="int" />
+		<entry key="unsignedByte" value="int" />
+		<entry key="positiveInteger" value="int" />
+		<entry key="anySimpleType" value="text" />
+	</util:map>
+	<!-- mapper and helper beans -->
+	<bean id="javaFileModifier" class="api.bigframework.utils.JavaFileModifier">
+		<property name="companyName" value="${company.name}" />
+	</bean>
+	<bean id="cfToEntityCreator" class="api.bigframework.mappers.CFToEntityCreator"
+		depends-on="javaFileModifier">
+		<property name="javaFileModifier" ref="javaFileModifier" />
+		<property name="entityPackageName" value="${package.name.entity}" />
+		<property name="cfDirectory" value="${dir.output.cassandra.cf}" />
+	</bean>
+	<bean id="xsdToCanonicalExcelGenerator" class="api.bigframework.mappers.XSDToCanonicalExcelGenerator">
+		<property name="xsdInputDir" value="${dir.input.xsd}" />
+		<property name="xsdName" value="${name.input.xsd}" />
+		<property name="xlsOutPath" value="${dir.output.xlsx}" />
+		<property name="xlsFileName" value="${name.output.xlsx.canonical}" />
+	</bean>
+	<bean id="xsdToMappingExcelGenerator" class="api.bigframework.mappers.XSDToMappingExcelGenerator">
+		<property name="xsdInputDir" value="${dir.input.xsd}" />
+		<property name="xsdName" value="${name.input.xsd}" />
+		<property name="xlsOutPath" value="${dir.output.xlsx}" />
+		<property name="xlsFileName" value="${name.output.xlsx.mapping}" />
+		<property name="columnFamilyNames" value="${columnFamily.name}" />
+		<property name="cassandraDataTypeMap" ref="xmlToCassandraDataTypeMap" />
+		<property name="jaxbPackageName" value="${package.name.jaxb}" />
+	</bean>
+	<bean id="xsdToJAXBGenerator" class="api.bigframework.mappers.XSDToJAXBGenerator">
+		<property name="xsdInputDir" value="${dir.input.xsd}" />
+		<property name="xsdName" value="${name.input.xsd}" />
+		<property name="jaxbPackageName" value="${package.name.jaxb}" />
+	</bean>
+	<bean id="jaxBToExcelCreator" class="api.bigframework.mappers.JaxBToExcelCreator">
+		<property name="xlsOutPath" value="${dir.output.xlsx}" />
+		<property name="xlsFileName" value="${name.output.xlsx.mapping}" />
+		<property name="coumnFamilyNames" value="${columnFamily.name}" />
+		<property name="cassandraDataTypeMap" ref="j2cDataTypeMap" />
+	</bean>
+	<bean id="excelToCFCreator" class="api.bigframework.mappers.ExcelToCFCreator">
+		<property name="casandraCFOutputDir" value="${dir.output.cassandra.cf}" />
+		<property name="casandraTypeOutputDir" value="${dir.output.cassandra.type}" />
+		<property name="xlsOutPath" value="${dir.output.xlsx}" />
+		<property name="xlsFileName" value="${name.output.xlsx.mapping}" />
+	</bean>
+	<bean id="dozerMappingGenerator" class="api.bigframework.mappers.DozerMappingGenerator">
+		<property name="dozerOutputDir" value="${dir.output.dozer}" />
+	</bean>
+	<bean id="frameworkGenerator" class="api.bigframework.controller.FrameworkGenerator"
+		destroy-method="close">
+		<property name="xsdToJAXBGenerator" ref="xsdToJAXBGenerator" />
+		<property name="jaxBToExcelCreator" ref="jaxBToExcelCreator" />
+		<property name="excelToCFCreator" ref="excelToCFCreator" />
+		<property name="cfToEntityCreator" ref="cfToEntityCreator" />
+		<property name="dozerMappingGenerator" ref="dozerMappingGenerator" />
+		<property name="xsdToCanonicalExcelGenerator" ref="xsdToCanonicalExcelGenerator" />
+		<property name="xsdToMappingExcelGenerator" ref="xsdToMappingExcelGenerator" />
+	</bean>
+</beans>

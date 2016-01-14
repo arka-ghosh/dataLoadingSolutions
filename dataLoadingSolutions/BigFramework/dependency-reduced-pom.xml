@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>api.bigframework</groupId>
+  <artifactId>api.bigframework</artifactId>
+  <name>Big Framework API</name>
+  <version>1.0</version>
+  <description>You can create a basic data loading framework using this project.</description>
+  <developers>
+    <developer>
+      <name>Arka Ghosh</name>
+      <email>Arka3.Ghosh3@cognizant.com</email>
+      <organization>Cognizant Technology Solutions</organization>
+      <organizationUrl>http://www.cognizant.com/</organizationUrl>
+    </developer>
+    <developer>
+      <name>Avik Chakraborty</name>
+      <email>Avik.Chakraborty5@cognizant.com</email>
+      <organization>Cognizant Technology Solutions</organization>
+      <organizationUrl>http://www.cognizant.com/</organizationUrl>
+    </developer>
+    <developer>
+      <name>Suman Ari</name>
+      <email>Suman.Ari@cognizant.com</email>
+      <organization>Cognizant Technology Solutions</organization>
+      <organizationUrl>http://www.cognizant.com/</organizationUrl>
+    </developer>
+  </developers>
+  <build>
+    <finalName>bigframework-${project.version}</finalName>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.3</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+            <fork>true</fork>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.dstovall</groupId>
+          <artifactId>onejar-maven-plugin</artifactId>
+          <version>1.4.5</version>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>one-jar</goal>
+              </goals>
+              <configuration>
+                <onejarversion>0.97</onejarversion>
+                <classifier>onejar</classifier>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>2.5.5</version>
+          <executions>
+            <execution>
+              <id>make-assembly</id>
+              <phase>package</phase>
+              <goals>
+                <goal>single</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <descriptorRefs>
+              <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+            <appendAssemblyId>false</appendAssemblyId>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>2.4.1</version>
+          <executions>
+            <execution>
+              <id>assembly</id>
+              <phase>package</phase>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+              <configuration>
+                <transformers>
+                  <transformer>
+                    <resource>META-INF/spring.handlers</resource>
+                  </transformer>
+                  <transformer>
+                    <resource>META-INF/spring.schemas</resource>
+                  </transformer>
+                  <transformer>
+                    <resource>META-INF/spring.tooling</resource>
+                  </transformer>
+                  <transformer />
+                  <transformer>
+                    <addHeader>false</addHeader>
+                  </transformer>
+                </transformers>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>onejar-maven-plugin.googlecode.com</id>
+      <url>http://onejar-maven-plugin.googlecode.com/svn/mavenrepo</url>
+    </pluginRepository>
+  </pluginRepositories>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>[4.12,)</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>hamcrest-core</artifactId>
+          <groupId>org.hamcrest</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
+  <properties>
+    <spring.version>[4.2.0.RELEASE,)</spring.version>
+    <poi_version>[3.12,)</poi_version>
+  </properties>
+</project>
+

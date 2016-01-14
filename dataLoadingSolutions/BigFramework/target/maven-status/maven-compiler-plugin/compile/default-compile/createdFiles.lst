@@ -1,0 +1,16 @@
+api\bigframework\mappers\CFToEntityCreator.class
+api\bigframework\mappers\XSDToCanonicalExcelGenerator.class
+api\bigframework\mappers\XSDToJAXBGenerator.class
+api\bigframework\mappers\XSDToMappingExcelGenerator.class
+api\bigframework\cassandra\ColumnFamilyDefinition.class
+api\bigframework\controller\FrameworkGenerator.class
+api\bigframework\cassandra\ColumnDefinition.class
+api\bigframework\exceptions\BigFrameworkException.class
+api\bigframework\utils\AnnotationHelper.class
+api\bigframework\mappers\DozerMappingGenerator.class
+api\bigframework\mappers\JaxBToExcelCreator.class
+api\bigframework\utils\APIStringUtils.class
+api\bigframework\mappers\ExcelToCFCreator.class
+api\bigframework\utils\JavaFileModifier.class
+api\bigframework\constants\BigFrameworkConstants.class
+api\bigframework\utils\LombokHelper.class

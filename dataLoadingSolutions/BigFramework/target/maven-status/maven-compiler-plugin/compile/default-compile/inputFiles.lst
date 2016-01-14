@@ -1,0 +1,16 @@
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\mappers\ExcelToCFCreator.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\mappers\XSDToCanonicalExcelGenerator.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\mappers\CFToEntityCreator.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\mappers\DozerMappingGenerator.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\cassandra\ColumnFamilyDefinition.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\cassandra\ColumnDefinition.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\mappers\XSDToMappingExcelGenerator.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\utils\AnnotationHelper.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\exceptions\BigFrameworkException.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\utils\APIStringUtils.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\utils\LombokHelper.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\utils\JavaFileModifier.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\constants\BigFrameworkConstants.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\controller\FrameworkGenerator.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\mappers\JaxBToExcelCreator.java
+D:\Arka_Ghosh\Workspace\dataMapping\BigFramework\src\main\java\api\bigframework\mappers\XSDToJAXBGenerator.java

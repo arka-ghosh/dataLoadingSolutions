@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	targetNamespace="http://www.dhikChik.com/Sample/1.0/" xmlns:pfx="http://www.dhikChik.com/Sample/1.0/"
+	elementFormDefault="qualified" attributeFormDefault="qualified">
+	<simpleType name="alpha1">
+		<restriction base="string">
+			<maxLength value="1" />
+		</restriction>
+	</simpleType>
+	<simpleType name="alpha2">
+		<restriction base="string">
+			<maxLength value="2" />
+		</restriction>
+	</simpleType>
+	<simpleType name="alpha3">
+		<restriction base="string">
+			<maxLength value="3" />
+		</restriction>
+	</simpleType>
+	<simpleType name="alpha4">
+		<restriction base="string">
+			<maxLength value="4" />
+		</restriction>
+	</simpleType>
+	<simpleType name="alpha5">
+		<restriction base="string">
+			<maxLength value="5" />
+		</restriction>
+	</simpleType>
+	<simpleType name="alpha10">
+		<restriction base="string">
+			<maxLength value="10" />
+		</restriction>
+	</simpleType>
+	<simpleType name="alpha25">
+		<restriction base="string">
+			<maxLength value="25" />
+		</restriction>
+	</simpleType>
+	<simpleType name="alpha80">
+		<restriction base="string">
+			<maxLength value="80" />
+		</restriction>
+	</simpleType>
+	<simpleType name="alpha1000">
+		<restriction base="string">
+			<maxLength value="1000" />
+		</restriction>
+	</simpleType>
+	<simpleType name="email">
+		<restriction base="string">
+			<maxLength value="255" />
+		</restriction>
+	</simpleType>
+	<simpleType name="year">
+		<restriction base="string">
+			<pattern value="[0-9][0-9][0-9][0-9]" />
+		</restriction>
+	</simpleType>
+	<complexType name="Type">
+		<sequence>
+			<element name="code" type="pfx:alpha3" />
+			<element name="description" type="pfx:alpha80" />
+		</sequence>
+	</complexType>
+	<complexType name="DateRange">
+		<sequence>
+			<element name="start" type="date" />
+			<element name="end" type="date" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroZero">
+		<sequence>
+			<element name="zeroZeroOne" type="pfx:alpha3" minOccurs="0" />
+			<element name="zeroZeroTwo" type="pfx:ZeroNine" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroZeroThree" type="boolean" minOccurs="0" />
+			<element name="zeroZeroFour" type="unsignedInt" minOccurs="0" />
+			<element name="zeroZeroFive" type="pfx:ZeroTen" minOccurs="0" />
+			<element name="zeroZeroSix" type="pfx:ZeroEleven" minOccurs="0" />
+			<element name="zeroZeroSeven" type="pfx:ZeroTwelve" minOccurs="0" />
+			<element name="zeroZeroEight" type="pfx:ZeroThirteen" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroZeroNine" type="pfx:ZeroTwo" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroZeroTen" type="pfx:ZeroFourteen" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroZeroEleven" type="boolean" minOccurs="0" />
+			<element name="zeroZeroTwelve" type="pfx:Type" minOccurs="0" />
+			<element name="zeroZeroThirteen" type="pfx:ZeroTen" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroZeroFourteen" type="boolean" minOccurs="0" />
+			<element name="zeroZeroFifteen" type="pfx:DateRange" minOccurs="0" />
+			<element name="zeroZeroSixteen" type="decimal" minOccurs="0" />
+			<element name="zeroZeroSeventeen" type="dateTime" minOccurs="0" />
+			<element name="zeroZeroEighteen" type="pfx:ZeroFourteen" minOccurs="0" />
+			<element name="zeroZeroNineteen" type="pfx:ZeroTen" minOccurs="0" />
+			<element name="zeroZeroTwenty" type="pfx:ZeroSixteen" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroOne">
+		<complexContent>
+			<extension base="pfx:ZeroSeventeen">
+				<sequence>
+					<element name="zeroOneOne" type="pfx:alpha10" />
+					<element name="zeroOneTwo" type="pfx:alpha10" minOccurs="0" />
+					<element name="zeroOneThree" type="string" />
+					<element name="zeroOneFour" type="unsignedLong" minOccurs="0" />
+					<element name="zeroOneFive" type="boolean" />
+					<element name="zeroOneSix" type="pfx:ZeroEighteen" minOccurs="0" maxOccurs="unbounded" />
+					<element name="zeroOneSeven" type="pfx:ZeroTen" minOccurs="0" />
+					<element name="zeroOneEight" type="pfx:alpha5" minOccurs="0" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ZeroTwo">
+		<sequence>
+			<element name="zeroTwoOne" type="pfx:alpha2" />
+			<element name="zeroTwoTwo" type="pfx:alpha80" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroThree">
+		<sequence>
+			<element name="zeroThreeOne" minOccurs="0">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="3" />
+						<maxLength value="3" />
+						<pattern value="[A-Z][A-Z][A-Z]" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="zeroThreeTwo" type="pfx:alpha80" minOccurs="0" />
+			<element name="zeroThreeThree" minOccurs="0">
+				<simpleType>
+					<restriction base="string">
+						<minLength value="3" />
+						<maxLength value="3" />
+						<pattern value="[0-9][0-9][0-9]" />
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="ZeroFour">
+		<sequence>
+			<element name="zeroFourOne" type="pfx:alpha2" />
+			<element name="zeroFourTwo" type="unsignedInt" />
+			<element name="zeroFourThree" minOccurs="0" maxOccurs="unbounded">
+				<complexType>
+					<sequence minOccurs="0">
+						<element name="zeroFourThreeOne" type="pfx:alpha1" />
+						<element name="zeroFourThreeTwo" type="pfx:ZeroTwenty" minOccurs="0" />
+						<element name="zeroFourThreeThree" type="pfx:ZeroTwentyOne" maxOccurs="unbounded" />
+						<element name="zeroFourThreeFour" type="pfx:ZeroTen" minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="zeroFourFour" minOccurs="0" maxOccurs="unbounded">
+				<complexType>
+					<sequence minOccurs="0">
+						<element name="zeroFourFourOne" type="pfx:alpha1" />
+						<element name="zeroFourFourTwo" type="pfx:ZeroTwentyTwo" minOccurs="0" />
+						<element name="zeroFourFourThree" type="pfx:ZeroTwentyThree" maxOccurs="unbounded" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="zeroFourFive" type="pfx:ZeroTwentyFour" minOccurs="0" />
+			<element name="zeroFourSix" type="date" />
+			<element name="zeroFourSeven" type="pfx:ZeroFourteen" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroFourEight" type="string" />
+			<element name="zeroFourNine" type="boolean" />
+			<element name="zeroFourTen" type="pfx:ZeroThirteen" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroFourEleven" type="pfx:ZeroTen" minOccurs="0" />
+			<element name="zeroFourTwelve" type="pfx:alpha25" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroFive">
+		<sequence>
+			<element name="zeroFiveOne" type="pfx:alpha25" minOccurs="0" />
+			<element name="zeroFiveTwo" type="pfx:year" minOccurs="0" />
+			<element name="zeroFiveThree" type="pfx:Type" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroFiveFour" type="boolean" minOccurs="0" />
+			<element name="zeroFiveFive" type="decimal" minOccurs="0" />
+			<element name="zeroFiveSix" type="unsignedShort" minOccurs="0" />
+			<element name="zeroFiveSeven" type="pfx:ZeroThirteen" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroFiveEight" type="pfx:ZeroFourteen" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroFiveNine" type="date" minOccurs="0" />
+			<element name="zeroFiveTen" type="pfx:ZeroOne" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroSix">
+		<sequence>
+			<element name="zeroSixOne" type="pfx:alpha25" minOccurs="0" />
+			<element name="zeroSixTwo" type="unsignedLong" minOccurs="0" />
+			<element name="zeroSixThree" type="pfx:ZeroTwentyFive" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroSeven">
+		<sequence>
+			<element name="zeroSevenOne" type="pfx:alpha10" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroEight">
+		<sequence>
+			<element name="zeroEightOne" type="pfx:alpha25" minOccurs="0" />
+			<element name="zeroEightTwo" type="unsignedLong" minOccurs="0" />
+			<element name="zeroEightThree" type="pfx:ZeroTen" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroNine">
+		<sequence>
+			<element name="zeroNineOne" type="pfx:alpha1000" />
+			<element name="zeroNineTwo" type="pfx:alpha10" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroTen">
+		<sequence>
+			<element name="zeroTenOne" type="pfx:alpha25" />
+			<element name="zeroTenTwo" type="pfx:alpha80" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroEleven">
+		<sequence>
+			<element name="zeroElevenOne" type="pfx:alpha25" />
+			<element name="zeroElevenTwo" type="pfx:ZeroNine" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroTwelve">
+		<sequence>
+			<element name="zeroTwelveOne" type="pfx:alpha10" />
+			<element name="zeroTwelveTwo" type="pfx:alpha80" />
+			<element name="zeroTwelveThree" type="dateTime" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroThirteen">
+		<sequence>
+			<element name="zeroThirteenOne" type="pfx:alpha25" />
+			<element name="zeroThirteenTwo" type="pfx:alpha25" />
+			<element name="zeroThirteenThree" type="pfx:alpha25" />
+			<element name="zeroThirteenFour" type="pfx:alpha3" />
+			<element name="zeroThirteenFive" type="pfx:alpha10" />
+			<element name="zeroThirteenSix" type="boolean" />
+			<element name="zeroThirteenSeven" type="pfx:DateRange" />
+			<element name="zeroThirteenEight" type="pfx:Type" />
+			<element name="zeroThirteenNine" type="pfx:ZeroTwo" />
+			<element name="zeroThirteenTen" type="pfx:ZeroThree" />
+			<element name="zeroThirteenEleven" type="pfx:ZeroFourteen" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroFourteen">
+		<sequence>
+			<element name="email" type="pfx:email" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroFourteenOne" type="pfx:ZeroFifteen" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroFourteenTwo" type="pfx:ZeroFifteen" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroFourteenThree" type="pfx:ZeroTen" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroFourteenFour" type="pfx:DateRange" minOccurs="0" />
+			<element name="zeroFourteenFive" type="boolean" minOccurs="0" />
+			<element name="zeroFourteenSix" type="pfx:alpha5" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroFifteen">
+		<sequence>
+			<element name="zeroFifteenOne" type="pfx:alpha10" minOccurs="0" />
+			<element name="zeroFifteenTwo" type="pfx:alpha5" minOccurs="0" />
+			<element name="zeroFifTeenThree" minOccurs="0">
+				<simpleType>
+					<restriction base="pfx:alpha25">
+						<enumeration value="zeroFifteenThreeOne" />
+						<enumeration value="zeroFifteenThreeTwo" />
+						<enumeration value="zeroFifteenThreeThree" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="zeroFifteenFour" type="boolean" minOccurs="0" />
+			<element name="zeroFifteenFive" type="pfx:alpha2" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroSixteen">
+		<sequence>
+			<element name="zeroSixteenOne" type="pfx:ZeroTen" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroSeventeen">
+		<sequence>
+			<element name="zeroSeventeenOne" type="pfx:alpha2" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroEighteen">
+		<sequence>
+			<element name="zeroEighteenOne" type="pfx:alpha2" />
+			<element name="zeroEighteenTwo" type="boolean" minOccurs="0" />
+			<element name="zeroEighteenThree" type="date" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroNineteen">
+		<sequence>
+			<element name="zeroNineteenOne" type="double" minOccurs="2" maxOccurs="5" />
+			<element name="zeroNineteenTwo" type="anyURI" />
+			<element name="zeroNineteenThree" type="pfx:year" maxOccurs="unbounded" />
+			<element name="zeroNineteenFour" type="pfx:ZeroTwenty" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroTwenty">
+		<sequence>
+			<element name="zeroTwentyOne" type="pfx:alpha2" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroTwentyOne">
+		<sequence>
+			<element name="zeroTwentyOneOne" type="pfx:alpha2" minOccurs="0" />
+			<element name="zeroTwentyOneTwo" type="boolean" maxOccurs="unbounded" />
+			<element name="zeroTwentyOneThree" type="unsignedInt" minOccurs="0" />
+			<element name="zeroTwentyOneFour" type="decimal" />
+			<element name="zeroTwentyOneFive" type="dateTime" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroTwentyOneSix" type="pfx:ZeroTen" minOccurs="0" />
+			<element name="zeroTwentyOneSeven" type="pfx:alpha1" />
+			<element name="zeroTwentyOneEight" type="pfx:ZeroEighteen" maxOccurs="unbounded" />
+			<element name="zeroTwentyOneNine" type="pfx:alpha25" minOccurs="0" />
+			<element name="zeroTwentyOneTen" type="pfx:ZeroTen" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroTwentyTwo">
+		<sequence>
+			<element name="zeroTwentyTwoOne" type="pfx:alpha2" minOccurs="0" />
+			<element name="zeroTwentyTwoTwo" type="boolean" />
+			<element name="zeroTwentyTwoThree" type="boolean" />
+			<element name="zeroTwentyTwoFour" type="pfx:alpha25" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroTwentyTwoFive" type="pfx:Type" minOccurs="0" />
+			<element name="zeroTwentyTwoSix" type="pfx:ZeroThirteen" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroTwentyTwoSeven" type="pfx:ZeroTen" minOccurs="0" />
+			<element name="zeroTwentyTwoEight" type="pfx:ZeroTwentyFive" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroTwentyTwoNine" type="unsignedLong" minOccurs="0" />
+			<element name="zeroTwentyTwoTen" type="pfx:alpha5" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroTwentyThree">
+		<sequence>
+			<element name="zeroTwentyThreeOne" type="pfx:ZeroFourteen" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroTwentyThreeTwo" type="pfx:alpha2" minOccurs="0" />
+			<element name="zeroTwentyThreeThree" type="pfx:Type" minOccurs="0" />
+			<element name="zeroTwentyThreeFour" type="pfx:alpha25" maxOccurs="unbounded" />
+			<element name="zeroTwentyThreeFive" type="pfx:ZeroTen" minOccurs="0" />
+			<element name="zeroTwentyThreeSix" type="boolean" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroTwentyThreeSeven" type="decimal" />
+			<element name="zeroTwentyThreeEight" type="pfx:ZeroEighteen" />
+			<element name="zeroTwentyThreeNine" type="dateTime" minOccurs="0" />
+			<element name="zeroTwentyThreeTen" type="pfx:ZeroTen" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroTwentyFour">
+		<sequence>
+			<element name="zeroTwentyFourOne" minOccurs="0">
+				<simpleType>
+					<restriction base="unsignedInt">
+						<minInclusive value="1" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="zeroTwentyFourTwo" minOccurs="0">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="zeroTwentyFourTwoOne" />
+						<enumeration value="zeroTwentyFourTwoTwo" />
+						<enumeration value="zeroTwentyFourTwoThree" />
+						<enumeration value="zeroTwentyFourTwoFour" />
+						<enumeration value="zeroTwentyFourTwoFive" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="zeroTwentyFourThree" type="pfx:ZeroThirteen" minOccurs="0" />
+			<element name="zeroTwentyFourFour" type="pfx:ZeroTen" minOccurs="0" />
+			<element name="zeroTwentyFourFive" type="pfx:alpha5" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="ZeroTwentyFive">
+		<sequence>
+			<element name="zeroTwentyFiveOne" type="pfx:alpha5" minOccurs="0" maxOccurs="unbounded" />
+			<element name="zeroTwentyFiveTwo" type="pfx:ZeroThirteen" minOccurs="0" />
+			<element name="zeroTwentyFiveThree" type="boolean" minOccurs="0" />
+			<element name="zeroTwentyFiveFour" type="date" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<!-- The canonical root element -->
+	<element name="RootElement">
+		<complexType>
+			<sequence>
+				<element name="one" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<complexContent>
+							<extension base="pfx:ZeroZero">
+								<sequence>
+									<element name="oneOne" minOccurs="0" maxOccurs="unbounded">
+										<complexType>
+											<complexContent>
+												<extension base="pfx:ZeroOne">
+													<sequence>
+														<element name="oneOneOne" type="pfx:ZeroTwo" />
+														<element name="oneOneTwo" type="pfx:ZeroThree" />
+													</sequence>
+												</extension>
+											</complexContent>
+										</complexType>
+									</element>
+									<element name="oneTwo" type="pfx:ZeroFour" minOccurs="0" maxOccurs="unbounded"  />
+									<element name="oneThree" type="pfx:ZeroFive" minOccurs="0" maxOccurs="unbounded"  />
+									<element name="oneFour" type="pfx:ZeroSix" minOccurs="0" maxOccurs="unbounded" />
+									<element name="oneFive" type="pfx:ZeroSeven" minOccurs="0" maxOccurs="unbounded" />
+									<element name="oneSix" type="pfx:ZeroEight" minOccurs="0" maxOccurs="unbounded" />
+								</sequence>
+							</extension>
+						</complexContent>
+					</complexType>
+				</element>
+				<element name="two" type="anySimpleType" minOccurs="1" />
+				<element name="three" minOccurs="0">
+					<complexType>
+						<simpleContent>
+							<extension base="pfx:year" />
+						</simpleContent>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

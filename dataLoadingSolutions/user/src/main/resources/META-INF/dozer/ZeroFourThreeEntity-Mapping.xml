@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+   <mapping map-null="false" trim-strings="true" wildcard="true">
+      <class-a>com.eim.mdm.datamap.entity.ZeroFourThreeEntity</class-a>
+      <class-b>com.eim.mdm.datamap.sample.v1.ZeroFour$ZeroFourThree</class-b>
+      <field>
+         <a>zeroFourThreeThree</a>
+         <b>zeroFourThreeThree</b>
+      </field>
+      <field>
+         <a>zeroFourThreeFour</a>
+         <b>zeroFourThreeFour</b>
+      </field>
+      <field>
+         <a>zeroFourThreeOne</a>
+         <b>zeroFourThreeOne</b>
+      </field>
+      <field>
+         <a>zeroFourThreeTwoZeroTwentyOne</a>
+         <b>zeroFourThreeTwo.zeroTwentyOne</b>
+      </field>
+   </mapping>
+</mappings>

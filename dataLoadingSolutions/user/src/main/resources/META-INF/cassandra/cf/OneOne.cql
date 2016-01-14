@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS OneOne(
+zeroSeventeenOne text,
+zeroOneOne text,
+zeroOneTwo text,
+zeroOneThree text,
+zeroOneFour bigint,
+zeroOneFive boolean,
+zeroOneSix list<text>,
+zeroOneSeven_zeroTenOne text,
+zeroOneSeven_zeroTenTwo text,
+zeroOneEight text,
+oneOneOne_zeroTwoOne text,
+oneOneOne_zeroTwoTwo text,
+oneOneTwo_zeroThreeOne text,
+oneOneTwo_zeroThreeTwo text,
+oneOneTwo_zeroThreeThree text,
+PRIMARY KEY(());
